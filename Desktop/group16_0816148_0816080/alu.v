@@ -14,41 +14,41 @@ Student ID: group16_0816148_0816080
    );
 
    /* Write your code HERE */
-   assign Zero=~(|result);
+	assign Zero=~(|result);
 
-reg signed [32-1:0] a, b;
+	reg signed [32-1:0] a, b;
 
 
-always @(negedge rst_n) begin
-	if(~rst_n)begin
-		result<=0;
+	always @(negedge rst_n) begin
+		if(~rst_n)begin
+			result<=0;
+		end
 	end
-end
 
-always @(*)begin
-		a = src1;
-		b = src2;
-	case(ALU_control)
-			4'b0010:begin	//add
-				result=a+b;
-			end
-			4'b0110:begin	//sub
-				result=a-b;
-			end
-			4'b0000:begin	//and
-				result=a&b;
-			end
-			4'b0001:begin	//or
-				result=a|b;
-			end
-			4'b0111:begin	//slt
-				result[0]=a<b;
-				result[31:1]=0;
-			end
-			default: result=result;
-	endcase
+	always @(*)begin
+			a = src1;
+			b = src2;
+		case(ALU_control)
+				4'b0010:begin	//add
+					result=a+b;
+				end
+				4'b0110:begin	//sub
+					result=a-b;
+				end
+				4'b0000:begin	//and
+					result=a&b;
+				end
+				4'b0001:begin	//or
+					result=a|b;
+				end
+				4'b0111:begin	//slt
+					result[0]=a<b;
+					result[31:1]=0;
+				end
+				default: result=result;
+		endcase
 
-end
+	end
 
 
 endmodule
