@@ -133,7 +133,7 @@ always @(*) begin
             memrd=0;
             memwr=0;
             srcA=1'bx;
-            srcB=2'bxx;
+            srcB=1'bx;
             op=2'bxx;
         end
 
