@@ -16,6 +16,7 @@ Student ID: group16_0816148_0816080
    /* Write your code HERE */
    assign Zero=~(|result);
 
+reg signed [32-1:0] a, b;
 
 
 always @(negedge rst_n) begin
@@ -25,21 +26,23 @@ always @(negedge rst_n) begin
 end
 
 always @(*)begin
+		a = src1;
+		b = src2;
 	case(ALU_control)
 			4'b0010:begin	//add
-				result=src1+src2;
+				result=a+b;
 			end
 			4'b0110:begin	//sub
-				result=src1-src2;
+				result=a-b;
 			end
 			4'b0000:begin	//and
-				result=src1&src2;
+				result=a&b;
 			end
 			4'b0001:begin	//or
-				result=src1|src2;
+				result=a|b;
 			end
 			4'b0111:begin	//slt
-				result[0]=src1<src2;
+				result[0]=a<b;
 				result[31:1]=0;
 			end
 			default: result=result;
