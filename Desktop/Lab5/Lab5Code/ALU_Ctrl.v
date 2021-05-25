@@ -63,7 +63,6 @@ always @(*)begin
         ALU_Ctrl=4'b0110;
     end
     endcase
-
 end
 
 endmodule
