@@ -88,7 +88,6 @@ float direct_mapped(std::string filename, int block_size, int cache_size)
     int total_num = -1;
     int hit_num = 0;
 
-    /* write your code HERE */
     /* -------------------- */
     ifstream in;
     in.open(filename);
